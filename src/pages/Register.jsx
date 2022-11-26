@@ -20,14 +20,14 @@ const Register = () => {
             const res = await createUserWithEmailAndPassword(auth, email, password);
             await updateProfile(res.user, {
                 displayName,
-                photoURL: "https://firebasestorage.googleapis.com/v0/b/instantmessaging-fd7e4.appspot.com/o/default.png?alt=media&token=8ecfa9b5-95d2-4681-9d3b-f6e166369369",
+                photoURL: "https://firebasestorage.googleapis.com/v0/b/instantmessaging-fd7e4.appspot.com/o/default.jpg?alt=media&token=36a0824d-2577-4b21-aff3-445c55a0bca2",
             });
             
             await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid,
                 displayName,
                 email,
-                photoURL: "https://firebasestorage.googleapis.com/v0/b/instantmessaging-fd7e4.appspot.com/o/default.png?alt=media&token=8ecfa9b5-95d2-4681-9d3b-f6e166369369",
+                photoURL: "https://firebasestorage.googleapis.com/v0/b/instantmessaging-fd7e4.appspot.com/o/default.jpg?alt=media&token=36a0824d-2577-4b21-aff3-445c55a0bca2",
             });
 
             await setDoc(doc(db, "userChats", res.user.uid), {});
