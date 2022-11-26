@@ -71,7 +71,17 @@ const Input = () => {
 
   return (
     <div className="input">
-      <input type="text" placeholder='Type here' onChange={e=>setText(e.target.value)} value={text}/>
+      <input 
+        type="text" 
+        placeholder='Type here' 
+        onChange={e=>setText(e.target.value)} 
+        value={text}
+        onKeyPress={event => {
+          if (event.key === 'Enter') {
+            handleSend();
+          }
+        }}
+      />
       <div className="send">
         <img src={Attach} alt=""/>
         <input type="file" style={{display:"none"}} id="file" onChange={e=>setImg(e.target.files[0])}/>
