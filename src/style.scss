@@ -175,15 +175,15 @@
   }
 
   .container {
-    border: 1px solid white;
     width: 100%;
     height: calc(100vh - 60px);
     display: flex;
     overflow: hidden;
 
     .sidebar {
+      border-right: 1px solid #555;
       flex: 1;
-      background-color: #3e3c61;
+      background-color: #333;
 
       .navbar {
         display: flex;
@@ -219,17 +219,17 @@
         }
       }
       .search {
-        border-bottom: 1px solid gray;
         background-color: #222;
-        height: 60px;
+        height: 70px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        flex-direction: column;
 
         .searchForm {
           padding: 10px;
-          width: 100%;
-          margin: 0px 10px;
+          width: 90%;
+          margin: 15px 10px;
+
           border-radius: 10px;
           padding-left: 16px;
           background-color: #444444;
@@ -250,36 +250,52 @@
             }
           }
         }
-      }
 
-      .userChat {
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: white;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #2f2d52;
-        }
-
-        img {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          object-fit: cover;
-        }
-
-        .userChatInfo {
-          span {
-            font-size: 18px;
-            font-weight: 500;
-          }
+        .userChat {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          color: white;
+          cursor: pointer;
+          background-color: #222222;
+          width: 100%;
+          z-index: 99;
+          flex-direction: column;
 
           p {
-            font-size: 14px;
-            color: lightgray;
+            margin: 20px 0px 8px 20px;
+            font-size: 20px;
+            font-weight: 400px;
+          }
+
+          img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          .userChatInfo {
+            width: calc(100% - 20px);
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 16px 0px 16px 20px;
+            border-bottom: 1px solid #555;
+
+            &:hover {
+              background-color: #282828;
+            }
+
+            span {
+              font-size: 18px;
+              font-weight: 500;
+            }
+
+            p {
+              font-size: 14px;
+              color: lightgray;
+            }
           }
         }
       }
@@ -288,13 +304,15 @@
       flex: 2;
 
       .chatInfo {
-        height: 50px;
-        background-color: #5d5b8d;
+        height: 60px;
+        background-color: #3d3b7b;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 10px;
         color: lightgray;
+        padding-left: 20px;
+        font-size: 18px;
+        font-weight: 500;
       }
 
       .chatIcons {
@@ -308,7 +326,7 @@
       }
 
       .messages {
-        background-color: #ddddf7;
+        background-color: #ccc;
         padding: 10px;
         height: calc(100% - 160px);
         overflow: scroll;
@@ -402,6 +420,51 @@
             color: white;
             background-color: #8da4f1;
           }
+        }
+      }
+    }
+  }
+
+  .chats {
+    .userChat {
+      padding: 20px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #ccc;
+      cursor: pointer;
+      border-top: 1px solid #555;
+      border-bottom: 1px solid #555;
+
+      &:hover {
+        background-color: #2a2a2a;
+      }
+
+      span {
+        color: #eee;
+      }
+
+      p {
+        margin-left: -2px;
+        margin-top: 4px;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .userChatInfo {
+        span {
+          font-size: 18px;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: 14px;
+          color: lightgray;
         }
       }
     }
