@@ -19,6 +19,7 @@ const Message = ({message}) => {
     <div ref={ref} className={`message ${message.senderID === currentUser.uid && "owner"}`}>
       <div className="messageInfo">
         <img src={message.senderID === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt=""/>
+        <span>{message.date.toDate().toLocaleString('en-GB', {timeZone: 'UTC'})}</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>
