@@ -94,7 +94,12 @@ const Search = () => {
           <p> Search Results</p>
           <div className="userChatInfo">
             <img src={user.photoURL} alt="" />
-            <span>{user.displayName}</span>{" "}
+            <span>
+              {user.displayName}
+              {" ("}
+              {user.email}
+              {")"}
+            </span>
           </div>
         </div>
       )}

@@ -12,7 +12,11 @@ const Chat = () => {
   return (
     <div className="chat">
       <div className="chatInfo">
-        <span className="chatUsername">{data.user?.displayName}</span>
+        <span className="chatUsername">
+          {data.user?.displayName} {" ("}
+          {data.user?.email}
+          {")"}
+        </span>
       </div>
       <Messages />
       <Input />
