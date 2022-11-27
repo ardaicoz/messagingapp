@@ -15,8 +15,8 @@
     display: flex;
     align-items: center;
     padding-left: 30px;
-    font-size: 24px;
-    color: white;
+    font-size: 22px;
+    color: #ccc;
     background-color: #222;
     border-bottom: 2px solid #a7bcff;
   }
@@ -119,8 +119,8 @@
     display: flex;
     align-items: center;
     padding-left: 30px;
-    font-size: 24px;
-    color: white;
+    font-size: 22px;
+    color: #ccc;
     background-color: #222;
     border-bottom: 2px solid #a7bcff;
     justify-content: space-between;
@@ -150,7 +150,7 @@
         }
 
         img {
-          background-color: #ddddf7;
+          background-color: #ccc;
           height: 22px;
           width: 22px;
           border-radius: 50%;
@@ -192,7 +192,7 @@
         height: 50px;
         padding: 10px;
         justify-content: space-between;
-        color: #ddddf7;
+        color: #ccc;
 
         .logo {
           font-weight: bold;
@@ -211,7 +211,7 @@
           }
 
           button {
-            background-color: #5d5b8d;
+            background-color: #535d80;
             color: #ddddf7;
             font-size: 10px;
             border: none;
@@ -305,9 +305,8 @@
       flex: 2;
 
       .chatInfo {
-        height: 70px;
-        border-bottom: 1px solid #333;
-        background-color: #3d3b7b;
+        height: 71px;
+        background-color: #535d80;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -356,7 +355,9 @@
 
           span {
             font-weight: 400;
-            color: #222;
+            font-size: 12px;
+            color: #333;
+            margin: 0px -5px;
           }
 
           button {
@@ -364,7 +365,8 @@
             background: none;
             border: none;
             color: red;
-            font-size: 14px;
+            font-size: 12px;
+            margin: 0px -5px;
 
             &:hover {
               cursor: pointer;
@@ -388,7 +390,7 @@
               color: #ccc;
               padding: 12px 20px;
               font-size: 16px;
-              border-radius: 0px 10px 10px 5px;
+              border-radius: 0px 10px 10px 10px;
 
               max-width: max-content;
             }
@@ -400,7 +402,7 @@
 
           &.owner + .owner {
             p {
-              border-radius: 10px 5px 5px 10px !important;
+              border-radius: 10px 10px 10px 10px !important;
               margin: -5px 40px 0px 0px !important;
             }
 
@@ -411,7 +413,7 @@
 
           &.false + .false {
             p {
-              border-radius: 5px 10px 10px 5px !important;
+              border-radius: 10px 10px 10px 10px !important;
               margin: -5px 0px 0px 40px !important;
             }
 
@@ -427,9 +429,9 @@
               align-items: flex-end;
 
               p {
-                background-color: #494692;
+                background-color: #6266b3;
                 color: white;
-                border-radius: 10px 0px 5px 10px;
+                border-radius: 10px 0px 10px 10px;
               }
             }
           }
@@ -438,7 +440,7 @@
 
       .input {
         height: 50px;
-        background-color: white;
+        background-color: #222;
         padding: 10px;
         display: flex;
         align-items: center;
@@ -448,29 +450,56 @@
           width: 100%;
           border: none;
           outline: none;
-          color: #2f2d52;
-          font-size: 18px;
+          color: white;
+          background-color: #444444;
+          font-size: 16px;
+          padding: 10px 10px 10px 20px;
+          border-radius: 10px;
+          margin: 0px 10px;
 
           &::placeholder {
-            color: lightgray;
+            color: #ccc;
+            font-size: 14px;
           }
         }
 
         .send {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 10px;
+
+          label {
+            display: flex;
+            align-items: center;
+          }
 
           img {
             height: 24px;
-            cursor: pointer;
+            padding: 8px;
+            background-color: #555;
+            border-radius: 10px;
+            margin: 0px 8px;
+
+            &:hover {
+              cursor: pointer;
+              background-color: #666;
+            }
           }
 
           button {
             border: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
+            margin-right: 10px;
             color: white;
+            font-size: 14px;
             background-color: #8da4f1;
+            border-radius: 10px;
+
+            &:hover {
+              cursor: pointer;
+              background-color: #6982d3;
+            }
           }
         }
       }
@@ -509,6 +538,26 @@
       }
 
       .userChatInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+
+        &:hover {
+          .deleteConversation button {
+            display: flex;
+          }
+        }
+
+        .deleteConversation button {
+          display: none;
+          background: none;
+          font-size: 12px;
+          color: rgb(253, 77, 77);
+          border: none;
+          cursor: pointer;
+        }
+
         span {
           font-size: 18px;
           font-weight: 500;
