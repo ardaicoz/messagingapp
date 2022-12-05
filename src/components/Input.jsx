@@ -1,13 +1,19 @@
-import React from 'react';
+import React from "react";
 import Img from "../img/img.png";
 import Attach from "../img/attach.png";
-import { useState, useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
-import { ChatContext } from '../context/ChatContext';
-import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from 'firebase/firestore';
-import { db, storage } from '../firebase';
+import { useState, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
+import {
+  arrayUnion,
+  doc,
+  serverTimestamp,
+  Timestamp,
+  updateDoc,
+} from "firebase/firestore";
+import { db, storage } from "../firebase";
 import { v4 as uuid } from "uuid";
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Input = () => {
   const [text, setText] = useState("");
@@ -22,7 +28,7 @@ const Input = () => {
       const storageRef = ref(storage, uuid());
       const uploadTask = uploadBytesResumable(storageRef, img);
 
-      uploadTask.on (
+      uploadTask.on(
         (error) => {
           setError(true);
         },
@@ -34,14 +40,13 @@ const Input = () => {
                 text,
                 senderID: currentUser.uid,
                 date: Timestamp.now(),
-                img: downloadURL
+                img: downloadURL,
               }),
             });
           });
         }
       );
-    }
-    else {
+    } else {
       await updateDoc(doc(db, "chats", data.chatID), {
         messages: arrayUnion({
           id: uuid(),
@@ -71,27 +76,31 @@ const Input = () => {
 
   return (
     <div className="input">
-      <input 
-        type="text" 
-        placeholder='Type here' 
-        onChange={e=>setText(e.target.value)} 
+      <input
+        type="text"
+        placeholder="Type a message here..."
+        onChange={(e) => setText(e.target.value)}
         value={text}
-        onKeyPress={event => {
-          if (event.key === 'Enter') {
+        onKeyPress={(event) => {
+          if (event.key === "Enter") {
             handleSend();
           }
         }}
       />
       <div className="send">
-        <img src={Attach} alt=""/>
-        <input type="file" style={{display:"none"}} id="file" onChange={e=>setImg(e.target.files[0])}/>
+        <input
+          type="file"
+          style={{ display: "none" }}
+          id="file"
+          onChange={(e) => setImg(e.target.files[0])}
+        />
         <label htmlFor="file">
-          <img src={Img} alt=""/>
+          <img src={Img} alt="" />
         </label>
         <button onClick={handleSend}>Send</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
