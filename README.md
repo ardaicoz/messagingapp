@@ -1,3 +1,12 @@
+# GigaChat: A messaging application for connoisseurs.
+
+## Where to find the source code:
+
+- Inside "public" folder, you can find index.html file.
+- Inside "src" folder, we have App.js and index.js. Also inside "components" folder, there are various React components we have used such as the Navbar and Message components. Then, inside "img" folder we have all of the images we used throughout the application. Finally, inside "pages" folder, we have the logic of the pages such as the login and register pages.
+
+## To start the app, first run "npm install" on the terminal and then run "npm start". The application should open at http://localhost:3000.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
