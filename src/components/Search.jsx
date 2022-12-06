@@ -14,6 +14,7 @@ import {
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import { async } from "@firebase/util";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -22,19 +23,29 @@ const Search = () => {
 
   const { currentUser } = useContext(AuthContext);
 
+  const handleUserClick = async () => {
+    setUser(null);
+  }
+
   const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
       where("displayName", "==", username)
     );
 
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        setUser(doc.data());
-      });
-    } catch (error) {
-      setError(true);
+    if (username == "") {
+      setUser(null);
+    }
+    else {
+      try {
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          setUser(doc.data());
+        });
+      } 
+      catch (error) {
+        setError(true);
+      }
     }
   };
 
@@ -92,7 +103,7 @@ const Search = () => {
       {user && (
         <div className="userChat" onClick={handleSelect}>
           <p>Search Results</p>
-          <div className="userChatInfo">
+          <div className="userChatInfo" onClick={handleUserClick}>
             <img src={user.photoURL} alt="" />
             <span>
               {user.displayName}
