@@ -35,7 +35,7 @@ const Message = ({ message }) => {
         {message.img && <img src={message.img} alt="" />}
       </div>
       <span>
-        {message.date.toDate().toLocaleString("en-GB", { timeZone: "UTC" })}
+        {message.date.toDate().toLocaleString("en-GB")}
       </span>
       <button>Delete</button>
     </div>
