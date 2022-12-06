@@ -1,14 +1,14 @@
-import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import React from 'react'
-import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import { db, storage } from '../firebase';
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import React from "react";
+import { useState } from "react";
+import Navbar from "../components/Navbar";
+import { db, storage } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { updateProfile } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 import Gigachat from "../img/gigachat.jpeg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const ProfilePicture = () => {
   const { currentUser } = useContext(AuthContext);
@@ -36,37 +36,35 @@ const ProfilePicture = () => {
               displayName,
               email,
               photoURL: downloadURL,
-            })
-          }
-          catch (error) {
+            });
+          } catch (error) {
             setError(true);
           }
         });
       });
-    }
-    catch (error) {
+    } catch (error) {
       setError(true);
     }
-  }
-  
+  };
+
   return (
     <div className="formContainer">
       <div className="navBar">
-        <img style={{height:60}} src={Gigachat}/>
+        <img style={{ height: 60 }} src={Gigachat} />
       </div>
       <div className="formWrapper">
-        <span className='title'>Upload photo</span>
+        <span className="title">Upload a Profile Picture</span>
         <form onSubmit={handleSubmit}>
-          <input type="file" id="file"/>
-          <button>Upload</button>
-          <p>
-            Go back to <Link to="/">home</Link>
-          </p>
+          <input id="file" type="file" />
+          <div class="buttons">
+            <Link to="/"> &lt; Go Back </Link>
+            <button class="uploadButton">Upload</button>
+          </div>
           {error && <span>Something went wrong</span>}
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ProfilePicture;

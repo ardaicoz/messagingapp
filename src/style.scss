@@ -601,3 +601,38 @@
     }
   }
 }
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#file {
+  background-color: #ddd;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90%;
+  text-align: center;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #222;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #ddd;
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
+.navbar img {
+  cursor: pointer;
+}
