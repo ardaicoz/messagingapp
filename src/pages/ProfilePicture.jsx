@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
+import Gigachat from "../img/gigachat.jpeg";
 
 const ProfilePicture = () => {
   const { currentUser } = useContext(AuthContext);
@@ -49,14 +50,17 @@ const ProfilePicture = () => {
   
   return (
     <div className="formContainer">
-        <div className="formWrapper">
-          <span className='title'>Upload photo</span>
-          <form onSubmit={handleSubmit}>
-            <input type="file" id="file"/>
-            <button>Upload</button>
-            {error && <span>Something went wrong</span>}
-          </form>
-        </div>
+      <div className="navBar">
+        <img style={{height:60}} src={Gigachat}/>
+      </div>
+      <div className="formWrapper">
+        <span className='title'>Upload photo</span>
+        <form onSubmit={handleSubmit}>
+          <input type="file" id="file"/>
+          <button>Upload</button>
+          {error && <span>Something went wrong</span>}
+        </form>
+      </div>
     </div>
   )
 }

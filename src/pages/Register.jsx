@@ -5,6 +5,7 @@ import { auth, storage, db } from "../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import Gigachat from "../img/gigachat.jpeg";
 
 const Register = () => {
   const [error, setError] = useState(false);
@@ -41,7 +42,9 @@ const Register = () => {
 
   return (
     <div className="formContainer">
-      <div className="navBar">GigaChat</div>
+      <div className="navBar">
+        <img style={{height:60}} src={Gigachat}/>
+      </div>
       <div className="formWrapper">
         <span className="title">Register to GigaChat</span>
         <form onSubmit={handleSubmit}>
@@ -51,7 +54,7 @@ const Register = () => {
           <button>Sign Up</button>
           {error && <span>Something went wrong</span>}
           <p>
-            Already have an account? <Link to="/login">Login ></Link>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
         </form>
       </div>
