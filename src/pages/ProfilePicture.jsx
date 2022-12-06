@@ -8,6 +8,7 @@ import { AuthContext } from "../context/AuthContext";
 import { updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import Gigachat from "../img/gigachat.jpeg";
+import { Link } from 'react-router-dom';
 
 const ProfilePicture = () => {
   const { currentUser } = useContext(AuthContext);
@@ -58,6 +59,9 @@ const ProfilePicture = () => {
         <form onSubmit={handleSubmit}>
           <input type="file" id="file"/>
           <button>Upload</button>
+          <p>
+            Go back to <Link to="/">home</Link>
+          </p>
           {error && <span>Something went wrong</span>}
         </form>
       </div>
